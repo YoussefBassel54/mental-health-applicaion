@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.only(left: 320, top: 130),
                 child: Text(
-                  'Chat now',
+                  'Chat coming soon',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,

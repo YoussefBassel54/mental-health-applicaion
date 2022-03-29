@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mental_health_application/reusable_card.dart';
+import 'package:mental_health_application/utilities/reusable_card.dart';
 
 class Home extends StatefulWidget {
   @override

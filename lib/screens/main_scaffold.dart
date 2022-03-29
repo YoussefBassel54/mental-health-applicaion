@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mental_health_application/screens/profile.dart';
+import 'package:mental_health_application/screens/daily.dart';
 import 'package:mental_health_application/screens/settings.dart';
 import 'package:mental_health_application/screens/tracker.dart';
 import 'package:mental_health_application/screens/notifications.dart';
@@ -18,7 +18,7 @@ class _MainScaffoldState extends State<MainScaffold> {
     Home(), //0
     Notifications(), //1
     Tracker(), //2
-    Profile(), //3
+    Daily(), //3
     Settings(), //4
   ];
 
@@ -56,7 +56,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            label: 'Daily',
             backgroundColor: Color(0xFF9FA8DA),
           ),
           BottomNavigationBarItem(

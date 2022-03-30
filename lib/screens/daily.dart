@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mental_health_application/utilities/constants.dart';
 
 class Daily extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _DailyState extends State<Daily> {
                           Icon(
                             Icons.favorite,
                             size: 90,
-                            color: Color(0xFFFD9A04),
+                            color: orangeColor,
                           ),
                           SizedBox(
                             width: 10,
@@ -70,7 +71,7 @@ class _DailyState extends State<Daily> {
                             child: Icon(
                               Icons.tag_faces,
                               size: 90,
-                              color: Color(0xFFFD9A04),
+                              color: orangeColor,
                             ),
                           ),
                           SizedBox(

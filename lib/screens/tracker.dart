@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mental_health_application/utilities/constants.dart';
 
 class Tracker extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _TrackerState extends State<Tracker> {
                           Icon(
                             Icons.pie_chart,
                             size: 90,
-                            color: Color(0xFFFD9A04),
+                            color: orangeColor,
                           ),
                           SizedBox(
                             width: 10,
@@ -70,7 +71,7 @@ class _TrackerState extends State<Tracker> {
                             child: Icon(
                               Icons.stacked_bar_chart,
                               size: 90,
-                              color: Color(0xFFFD9A04),
+                              color: orangeColor,
                             ),
                           ),
                           SizedBox(
@@ -107,7 +108,7 @@ class _TrackerState extends State<Tracker> {
                             child: Icon(
                               Icons.stacked_line_chart,
                               size: 90,
-                              color: Color(0xFFFD9A04),
+                              color: orangeColor,
                             ),
                           ),
                           SizedBox(

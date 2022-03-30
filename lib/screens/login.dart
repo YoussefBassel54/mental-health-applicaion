@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mental_health_application/utilities/constants.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -47,7 +48,7 @@ class _LoginState extends State<Login> {
                       prefixIcon: Icon(
                         Icons.supervised_user_circle_outlined,
                         size: 50,
-                        color: Color(0xFFFD9A04),
+                        color: orangeColor,
                       ),
                     ),
                   ),
@@ -73,7 +74,7 @@ class _LoginState extends State<Login> {
                       prefixIcon: Icon(
                         Icons.lock_outline,
                         size: 50,
-                        color: Color(0xFFFD9A04),
+                        color: orangeColor,
                       ),
                     ),
                   ),

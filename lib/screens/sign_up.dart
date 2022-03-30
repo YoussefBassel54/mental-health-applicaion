@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mental_health_application/utilities/constants.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -48,7 +49,7 @@ class _SignUpState extends State<SignUp> {
                       prefixIcon: Icon(
                         Icons.supervised_user_circle_outlined,
                         size: 50,
-                        color: Color(0xFFFD9A04),
+                        color: orangeColor,
                       ),
                     ),
                   ),
@@ -74,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                       prefixIcon: Icon(
                         Icons.mail_outline,
                         size: 50,
-                        color: Color(0xFFFD9A04),
+                        color: orangeColor,
                       ),
                     ),
                   ),
@@ -100,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                       prefixIcon: Icon(
                         Icons.lock_outline,
                         size: 50,
-                        color: Color(0xFFFD9A04),
+                        color: orangeColor,
                       ),
                     ),
                   ),
@@ -126,7 +127,7 @@ class _SignUpState extends State<SignUp> {
                       prefixIcon: Icon(
                         Icons.lock_outline,
                         size: 50,
-                        color: Color(0xFFFD9A04),
+                        color: orangeColor,
                       ),
                     ),
                   ),

@@ -11,6 +11,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Mental Health App'),
         backgroundColor: Color(0xFFB2B9E2),

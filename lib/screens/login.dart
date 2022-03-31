@@ -10,6 +10,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Mental Health App'),
         backgroundColor: Color(0xFFB2B9E2),

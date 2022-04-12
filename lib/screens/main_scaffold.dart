@@ -6,6 +6,7 @@ import 'package:mental_health_application/screens/tracker.dart';
 import 'package:mental_health_application/screens/notifications.dart';
 import 'navbar.dart';
 import 'home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MainScaffold extends StatefulWidget {
   @override
@@ -13,6 +14,9 @@ class MainScaffold extends StatefulWidget {
 }
 
 class _MainScaffoldState extends State<MainScaffold> {
+  final _auth = FirebaseAuth.instance;
+  late User loggedInUser;
+
   int currentIndex = 0;
   final screens = [
     Home(), //0
@@ -21,6 +25,24 @@ class _MainScaffoldState extends State<MainScaffold> {
     Daily(), //3
     Settings(), //4
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        print(loggedInUser.email);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

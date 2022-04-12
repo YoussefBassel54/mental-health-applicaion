@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_health_application/utilities/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -8,6 +9,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final _auth = FirebaseAuth.instance;
+  String username = "";
+  String email = "";
+  String password = "";
+  String repeatPassword = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,11 +49,14 @@ class _SignUpState extends State<SignUp> {
                 Padding(
                   padding: const EdgeInsets.only(top: 100, left: 15),
                   child: TextField(
+                    onChanged: (value) {
+                      username = value;
+                    },
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 20, color: Colors.grey),
                       border: InputBorder.none,
-                      hintText: 'full name',
+                      hintText: 'Username',
                       prefixIcon: Icon(
                         Icons.supervised_user_circle_outlined,
                         size: 50,
@@ -68,6 +78,10 @@ class _SignUpState extends State<SignUp> {
                 Padding(
                   padding: const EdgeInsets.only(top: 30, left: 15),
                   child: TextField(
+                    onChanged: (value) {
+                      email = value;
+                    },
+                    keyboardType: TextInputType.emailAddress,
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 20, color: Colors.grey),
@@ -94,6 +108,10 @@ class _SignUpState extends State<SignUp> {
                 Padding(
                   padding: const EdgeInsets.only(top: 30, left: 15),
                   child: TextField(
+                    onChanged: (value) {
+                      password = value;
+                    },
+                    obscureText: true,
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 20, color: Colors.grey),
@@ -120,6 +138,10 @@ class _SignUpState extends State<SignUp> {
                 Padding(
                   padding: const EdgeInsets.only(top: 30, left: 15),
                   child: TextField(
+                    onChanged: (value) {
+                      repeatPassword = value;
+                    },
+                    obscureText: true,
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 20, color: Colors.grey),
@@ -149,8 +171,29 @@ class _SignUpState extends State<SignUp> {
                     textColor: Colors.white,
                     color: Color(0xFFB2B9E2),
                     child: Text('Sign up'),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/mainScaffold');
+                    onPressed: () async {
+                      if (password == repeatPassword) {
+                        try {
+                          final newUser =
+                              await _auth.createUserWithEmailAndPassword(
+                                  email: email, password: password);
+                          if (newUser != null) {
+                            Navigator.pushNamed(context, '/mainScaffold');
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content:
+                                  Text("passwords do not match, try again"),
+                            );
+                          },
+                        );
+                      }
                     },
                   ),
                 ),

@@ -61,7 +61,7 @@ class _TrackerState extends State<Tracker> {
                 Padding(
                   padding: const EdgeInsets.only(top: 50, bottom: 5),
                   child: GestureDetector(
-                    onTap: null,
+                    onTap: () => Navigator.pushNamed(context, '/moodgraphpage'),
                     child: Container(
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.center,

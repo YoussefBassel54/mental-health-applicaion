@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_health_application/screens/goals.dart';
+import 'package:mental_health_application/screens/mood_graph.dart';
 import 'package:mental_health_application/screens/payment.dart';
 import 'package:mental_health_application/screens/talk_about_day.dart';
 import 'package:mental_health_application/screens/chat_selector.dart';
@@ -47,6 +48,7 @@ class MentalApp extends StatelessWidget {
         '/upcomingsessions': (context) => UpcomingSessionsPage(),
         '/sessionhistory': (context) => SessionHistoryPage(),
         '/payment': (context) => PaymentPage(),
+        '/moodgraphpage': (context) => MoodGraphPage(),
       },
     );
   }

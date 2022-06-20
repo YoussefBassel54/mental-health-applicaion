@@ -218,37 +218,33 @@ class _RateDayState extends State<RateDay> {
                 SizedBox(
                   height: 35,
                 ),
-                TextField(
-                  controller: myController,
-                  maxLines: 18,
-                  maxLength: 560,
-                  maxLengthEnforced: true,
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                      fillColor: Color(0x77B2B9E2),
-                      filled: true,
-                      border: OutlineInputBorder(),
-                      hintText: "Tell us about your day"),
-                ),
-                FlatButton(
-                  color: orangeColor,
-                  onPressed: () {
-                    print("$selectedFace");
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          // Retrieve the text that the user has entered by using the
-                          // TextEditingController.
-                          content: Text(myController.text),
-                        );
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FlatButton(
+                      color: orangeColor,
+                      onPressed: () {
+                        print(selectedFace);
                       },
-                    );
-                  },
-                  child: Text(
-                    "Submit",
-                    style: TextStyle(color: Colors.white),
-                  ),
+                      child: Text(
+                        "Submit",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    FlatButton(
+                      color: orangeColor,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/talkaboutyourday');
+                      },
+                      child: Text(
+                        "talk about your day",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

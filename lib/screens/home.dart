@@ -51,13 +51,13 @@ class _HomeState extends State<Home> {
                   width: 411.4,
                 ),
                 onPress: () {
-                  Navigator.pushNamed(context, '/chatselector');
+                  Navigator.pushNamed(context, '/chatscreen');
                 },
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 320, top: 130),
                 child: Text(
-                  'Chat coming soon',
+                  'Chat with chatbot',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                   ReusableCard(
                     image: Image.asset('images/target.jpg'),
                     onPress: () {
-                      Navigator.pushNamed(context, '/welcome1');
+                      Navigator.pushNamed(context, '/dailygoals');
                     },
                   ),
                   Padding(

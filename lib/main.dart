@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mental_health_application/screens/goals.dart';
+import 'package:mental_health_application/screens/talk_about_day.dart';
 import 'package:mental_health_application/screens/chat_selector.dart';
-import 'package:mental_health_application/screens/home.dart';
 import 'package:mental_health_application/screens/login.dart';
 import 'package:mental_health_application/screens/main_scaffold.dart';
 import 'package:mental_health_application/screens/mood.dart';
@@ -10,6 +11,7 @@ import 'package:mental_health_application/screens/sign_up.dart';
 import 'package:mental_health_application/screens/welcome_page2.dart';
 import 'package:mental_health_application/screens/welcome_page3.dart';
 import 'screens/welcome_page1.dart';
+import 'screens/chat_space.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +32,11 @@ class MentalApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/mainScaffold': (context) => MainScaffold(),
         '/chatselector': (context) => ChatSelector(),
-        '/mood': (context) => Mood(),
+        '/mood': (context) => MoodPage(),
         '/rateday': (context) => RateDay(),
+        '/chatscreen': (context) => ChatSpace(),
+        '/talkaboutyourday': (context) => TalkAboutDay(),
+        '/dailygoals': (context) => GoalsPage(),
       },
     );
   }

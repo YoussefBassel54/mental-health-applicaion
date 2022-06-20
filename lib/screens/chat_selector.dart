@@ -26,7 +26,7 @@ class _ChatSelectorState extends State<ChatSelector> {
                 Padding(
                   padding: const EdgeInsets.only(top: 120, bottom: 5),
                   child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, '/welcome1'),
+                    onTap: () => Navigator.pushNamed(context, '/chatscreen'),
                     child: Container(
                       child: Text(
                         'CHATBOT',

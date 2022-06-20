@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_health_application/screens/goals.dart';
+import 'package:mental_health_application/screens/payment.dart';
 import 'package:mental_health_application/screens/talk_about_day.dart';
 import 'package:mental_health_application/screens/chat_selector.dart';
 import 'package:mental_health_application/screens/login.dart';
@@ -10,6 +11,10 @@ import 'package:mental_health_application/screens/rate_day.dart';
 import 'package:mental_health_application/screens/sign_up.dart';
 import 'package:mental_health_application/screens/welcome_page2.dart';
 import 'package:mental_health_application/screens/welcome_page3.dart';
+import 'package:mental_health_application/screens/sessions_page.dart';
+import 'package:mental_health_application/screens/book_session.dart';
+import 'package:mental_health_application/screens/upcoming_sessions.dart';
+import 'package:mental_health_application/screens/session_history.dart';
 import 'screens/welcome_page1.dart';
 import 'screens/chat_space.dart';
 
@@ -37,6 +42,11 @@ class MentalApp extends StatelessWidget {
         '/chatscreen': (context) => ChatSpace(),
         '/talkaboutyourday': (context) => TalkAboutDay(),
         '/dailygoals': (context) => GoalsPage(),
+        '/sessions': (context) => SessionsPage(),
+        '/booksessions': (context) => BookSessionPage(),
+        '/upcomingsessions': (context) => UpcomingSessionsPage(),
+        '/sessionhistory': (context) => SessionHistoryPage(),
+        '/payment': (context) => PaymentPage(),
       },
     );
   }

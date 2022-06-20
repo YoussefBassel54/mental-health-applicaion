@@ -69,7 +69,7 @@ class _NavBarState extends State<NavBar> {
           ListTile(
             leading: Icon(Icons.calendar_today),
             title: Text('Sessions'),
-            onTap: () => null,
+            onTap: () => Navigator.pushNamed(context, '/sessions'),
           ),
           Divider(),
           ListTile(

@@ -42,7 +42,7 @@ dependencies:
   intl: ^0.17.0
   http: ^0.13.4
   table_calendar: ^3.0.5
-  syncfusion_flutter_charts: ^19.1.54
+  fl_chart: ^0.12.0
 
 dev_dependencies:
   flutter_test:

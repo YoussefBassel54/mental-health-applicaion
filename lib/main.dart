@@ -10,6 +10,7 @@ import 'package:mental_health_application/screens/main_scaffold.dart';
 import 'package:mental_health_application/screens/mood.dart';
 import 'package:mental_health_application/screens/rate_day.dart';
 import 'package:mental_health_application/screens/sign_up.dart';
+import 'package:mental_health_application/screens/test_chat_screen.dart';
 import 'package:mental_health_application/screens/welcome_page2.dart';
 import 'package:mental_health_application/screens/welcome_page3.dart';
 import 'package:mental_health_application/screens/sessions_page.dart';
@@ -40,7 +41,7 @@ class MentalApp extends StatelessWidget {
         '/chatselector': (context) => ChatSelector(),
         '/mood': (context) => MoodPage(),
         '/rateday': (context) => RateDay(),
-        '/chatscreen': (context) => ChatSpace(),
+        '/chatscreen': (context) => TestChatSpace(),
         '/talkaboutyourday': (context) => TalkAboutDay(),
         '/dailygoals': (context) => GoalsPage(),
         '/sessions': (context) => SessionsPage(),

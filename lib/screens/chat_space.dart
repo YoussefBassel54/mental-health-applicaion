@@ -3,6 +3,8 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'message.dart';
 import 'package:mental_health_application/utilities/constants.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ChatSpace extends StatefulWidget {
   @override

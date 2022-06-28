@@ -6,6 +6,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import   IsAuthenticated
+import pandas as pd
+from django.core import serializers 
+import json
 
 
 
@@ -37,10 +40,19 @@ def Get_Mood(request):
         guest = Mood.objects.filter(user=request.user.id)
     except Mood.DoesNotExists:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    serialized_models = serializers.serialize(format='python', queryset=guest)
+    serialized_objects = [s['fields'] for s in serialized_models]
+    data = [x.values() for x in serialized_objects]
+    columns = serialized_objects[0].keys()
+    df = pd.DataFrame(data, columns=columns)
+    result = df['mood'].value_counts() 
+    result2 = (result/result.sum())*100
+    counts = result2.to_dict()
     # GET
     if request.method == 'GET':
-        serializer = MoodSerializer(guest,many=True)
-        return Response(serializer.data)
+        # serializer = MoodSerializer(guest,many=True)
+        # return Response(serializer.data)
+        return Response(counts)
         
 
 
@@ -54,14 +66,36 @@ def Get_Mood(request):
         "user": 1
  }
 """
+#@api_view(['POST'])
+#@permission_classes((IsAuthenticated, ))
+#def Rating_Input(request):
+#    if request.method == 'POST':
+#        serializer = RatingSerializer(data= request.data)
+#        day_to_check = request.POST.get('day')
+#        if serializer.is_valid():
+#            flag=Rating.objects.filter(day=day_to_check).exists()
+#            if flag:
+#                return Response('Day is already Rated!', status= status.HTTP_400_BAD_REQUEST)
+#            else:
+#                serializer.save()
+#                return Response('Rating sumbited successfully!', status= status.HTTP_201_CREATED)
+#        return Response('Invalid Input!', status= status.HTTP_400_BAD_REQUEST)
+#    else:
+#        Response('Invalid Request!', status= status.HTTP_400_BAD_REQUEST)
+
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Rating_Input(request):
     if request.method == 'POST':
         serializer = RatingSerializer(data= request.data)
+        day_to_check = request.data.get('day')
         if serializer.is_valid():
-            serializer.save()
-            return Response('Rating sumbited successfully!', status= status.HTTP_201_CREATED)
+            flag=Rating.objects.filter(day=day_to_check).exists()
+            if flag:
+                return Response('Day is already Rated!', status= status.HTTP_400_BAD_REQUEST)
+            else:
+                serializer.save()
+                return Response('Rating sumbited successfully!', status= status.HTTP_201_CREATED)
         return Response('Invalid Input!', status= status.HTTP_400_BAD_REQUEST)
     else:
         Response('Invalid Request!', status= status.HTTP_400_BAD_REQUEST)
@@ -74,11 +108,18 @@ def Get_Rating(request):
         guest = Rating.objects.filter(user=request.user.id)
     except Rating.DoesNotExists:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    serialized_models = serializers.serialize(format='python', queryset=guest)
+    serialized_objects = [s['fields'] for s in serialized_models]
+    data = [x.values() for x in serialized_objects]
+    columns = serialized_objects[0].keys()
+    df = pd.DataFrame(data, columns=columns)
+    result = df['rating'].value_counts()
+    counts = result.to_dict()
     # GET
     if request.method == 'GET':
-        serializer = RatingSerializer(guest,many=True)
-        return Response(serializer.data)
-
+        # serializer = MoodSerializer(guest,many=True)
+        # return Response(serializer.data)
+        return Response(counts)
 
 
 #3.Day Tweet Function
@@ -93,13 +134,17 @@ def Get_Rating(request):
 
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
-# @permission_classes((IsAuthenticated, ))
 def Tweet_Input(request):
     if request.method == 'POST':
         serializer = DayTweetSerializer(data= request.data)
+        day_to_check = request.data.get('day')
         if serializer.is_valid():
-            serializer.save()
-            return Response('Tweet sumbited successfully!', status= status.HTTP_201_CREATED)
+            flag=Day_Tweet.objects.filter(day=day_to_check).exists()
+            if flag:
+                return Response('Day is already tweeted!', status= status.HTTP_400_BAD_REQUEST)
+            else:
+                serializer.save()
+                return Response('Tweet sumbited successfully!', status= status.HTTP_201_CREATED)
         return Response('Invalid Input!', status= status.HTTP_400_BAD_REQUEST)
     else:
         Response('Invalid Request!', status= status.HTTP_400_BAD_REQUEST)
@@ -122,7 +167,7 @@ def Get_Tweet(request):
 
 #4.Goal Function
 @api_view(['POST'])
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 # @permission_classes((IsAuthenticated, ))
 def Goal_Input(request):
     if request.method == 'POST':

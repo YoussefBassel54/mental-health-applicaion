@@ -27,40 +27,6 @@ class _TrackerState extends State<Tracker> {
                 Padding(
                   padding: const EdgeInsets.only(top: 50, bottom: 5),
                   child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, '/welcome1'),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.pie_chart,
-                            size: 90,
-                            color: orangeColor,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'Discover what you most spend your time on',
-                            style: TextStyle(
-                              color: Colors.black45,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Color(0xFF9FA8DA),
-                  height: 2,
-                  width: double.infinity,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 50, bottom: 5),
-                  child: GestureDetector(
                     onTap: () => Navigator.pushNamed(context, '/moodgraphpage'),
                     child: Container(
                       child: Row(
@@ -98,7 +64,8 @@ class _TrackerState extends State<Tracker> {
                 Padding(
                   padding: const EdgeInsets.only(top: 50, bottom: 5),
                   child: GestureDetector(
-                    onTap: null,
+                    onTap: () =>
+                        Navigator.pushNamed(context, '/ratedaygraphpage'),
                     child: Container(
                       child: Row(
                         //mainAxisAlignment: MainAxisAlignment.center,
@@ -115,7 +82,7 @@ class _TrackerState extends State<Tracker> {
                             width: 10,
                           ),
                           Text(
-                            'Monthly Reports',
+                            'Track down your daily rating',
                             style: TextStyle(
                               color: Colors.black45,
                               fontWeight: FontWeight.w900,

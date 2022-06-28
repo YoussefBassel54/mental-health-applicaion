@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mental_health_application/screens/add_goal.dart';
 import 'package:mental_health_application/screens/goals.dart';
-import 'package:mental_health_application/screens/mood_graph.dart';
+import 'package:mental_health_application/screens/mood_graph_page.dart';
+import 'package:mental_health_application/screens/rate_day_graph.dart';
 import 'package:mental_health_application/screens/payment.dart';
 import 'package:mental_health_application/screens/talk_about_day.dart';
 import 'package:mental_health_application/screens/chat_selector.dart';
@@ -41,7 +43,7 @@ class MentalApp extends StatelessWidget {
         '/chatselector': (context) => ChatSelector(),
         '/mood': (context) => MoodPage(),
         '/rateday': (context) => RateDay(),
-        '/chatscreen': (context) => TestChatSpace(),
+        '/chatscreen': (context) => Chatbot(),
         '/talkaboutyourday': (context) => TalkAboutDay(),
         '/dailygoals': (context) => GoalsPage(),
         '/sessions': (context) => SessionsPage(),
@@ -49,7 +51,9 @@ class MentalApp extends StatelessWidget {
         '/upcomingsessions': (context) => UpcomingSessionsPage(),
         '/sessionhistory': (context) => SessionHistoryPage(),
         '/payment': (context) => PaymentPage(),
+        '/ratedaygraphpage': (context) => RateDayGraphPage(),
         '/moodgraphpage': (context) => MoodGraphPage(),
+        '/addgoalpage': (context) => AddGoal(),
       },
     );
   }

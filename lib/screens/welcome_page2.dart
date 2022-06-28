@@ -26,15 +26,16 @@ class _WelcomePage2State extends State<WelcomePage2> {
                 Padding(
                   padding: const EdgeInsets.only(top: 100),
                   child: Icon(
-                    Icons.chat_bubble_outline_outlined,
+                    Icons.calendar_month_outlined,
                     color: Colors.white,
                     size: 150,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 18, top: 70),
+                  padding: const EdgeInsets.only(top: 70),
                   child: Text(
-                    'Chat with people all over the world',
+                    'Book sessions with professionals',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w300,

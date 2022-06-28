@@ -6,7 +6,7 @@ from doctors.models import doctorlist,reservation, availability,Rating
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = doctorlist
-        fields = ('image', 'name', 'specialty','session_price')
+        fields = ('image', 'name', 'specialty','session_price','description','id')
 
 
 

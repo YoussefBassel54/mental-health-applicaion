@@ -26,9 +26,7 @@ class _HomeState extends State<Home> {
                   fit: BoxFit.fill,
                   width: 411.4,
                 ),
-                onPress: () {
-                  Navigator.pushNamed(context, '/welcome1');
-                },
+                onPress: () {},
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 40, top: 40),
@@ -46,20 +44,20 @@ class _HomeState extends State<Home> {
             child: Stack(children: [
               ReusableCard(
                 image: Image.asset(
-                  'images/thinker.jpg',
+                  'images/booking.jpeg',
                   fit: BoxFit.fill,
                   width: 411.4,
                 ),
                 onPress: () {
-                  Navigator.pushNamed(context, '/chatscreen');
+                  Navigator.pushNamed(context, '/sessions');
                 },
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 320, top: 130),
+                padding: const EdgeInsets.only(left: 340, top: 30),
                 child: Text(
-                  'Chat with chatbot',
+                  'Book a doctor\'s session',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black54,
                     fontWeight: FontWeight.w900,
                   ),
                 ),

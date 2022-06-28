@@ -3,6 +3,8 @@ import 'package:mental_health_application/utilities/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../services/remote_service.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -110,17 +112,30 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.only(top: 50),
                     child: FlatButton(
                       textColor: Colors.white,
-                      color: Color(0xFFB2B9E2),
+                      color: orangeColor,
                       child: Text('Login'),
                       onPressed: () async {
                         setState(() {
                           showSpinner = true;
                         });
                         try {
-                          final user = await _auth.signInWithEmailAndPassword(
-                              email: email, password: password);
-                          if (user != null) {
+                          // final user = await _auth.signInWithEmailAndPassword(
+                          //     email: email, password: password);
+                          // if (user != null) {
+                          //   Navigator.pushNamed(context, '/mainScaffold');
+                          // }
+                          var response =
+                              await ApiService.instance.post('user/login/', {
+                            "email": email,
+                            "password": password,
+                          });
+                          if (response != null) {
+                            ApiService.instance.token = response["access"];
+                            ApiService.instance.userID = response["id"];
+                            print(ApiService.instance.userID);
                             Navigator.pushNamed(context, '/mainScaffold');
+                          } else {
+                            //display error message
                           }
 
                           setState(() {
